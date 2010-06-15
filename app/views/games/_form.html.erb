@@ -1,0 +1,24 @@
+<% form_for @game do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :match_id %><br />
+    <%= f.select :match_id, Match.options_for_select %>
+  </p>
+  <p>
+    <%= f.label :odds %><br />
+    <%= f.text_field :odds %>
+  </p>
+  <p>
+    <%= f.label :public %><br />
+    <%= f.check_box :public %>
+  </p>
+  <p>
+    <%= f.label :start_bet_time %><br />
+    <%= f.datetime_select :start_bet_time %>
+  </p>
+  <p>
+    <%= f.label :end_bet_time %><br />
+    <%= f.datetime_select :end_bet_time %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

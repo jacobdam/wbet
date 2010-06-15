@@ -1,0 +1,7 @@
+nbproject
+tmp
+log
+db/schemas.rb
+db/*.sqlite3
+.bundle
+

@@ -1,0 +1,23 @@
+# Filters added to this controller apply to all controllers in the application.
+# Likewise, all the methods added will be available for all controllers.
+
+class UnauthorizedError < Exception; end
+
+class ApplicationController < ActionController::Base
+  include Authentication
+  helper :all # include all helpers, all the time
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
+  filter_parameter_logging :password
+
+  rescue_from UnauthorizedError do |e|
+    flash[:error] = e.message
+    redirect_to login_path
+  end
+
+
+protected
+  def unauthorized!(message = 'You dont have permission to view this resource!')
+    raise UnauthorizedError, message
+  end
+end

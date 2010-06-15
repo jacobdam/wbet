@@ -1,0 +1,25 @@
+<% title "Games" %>
+
+<table>
+  <tr>
+    <th>Match</th>
+    <th>Odds</th>
+    <th>Public</th>
+    <th>Start Bet Time</th>
+    <th>End Bet Time</th>
+  </tr>
+  <% for game in @games %>
+    <tr>
+      <td><%=h game.match_id %></td>
+      <td><%=h game.odds %></td>
+      <td><%=h game.public %></td>
+      <td><%=h game.start_bet_time %></td>
+      <td><%=h game.end_bet_time %></td>
+      <td><%= link_to "Show", game %></td>
+      <td><%= link_to "Edit", edit_game_path(game) %></td>
+      <td><%= link_to "Destroy", game, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Game", new_game_path %></p>

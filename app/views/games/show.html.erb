@@ -1,0 +1,16 @@
+<% title @game.match.name %>
+
+<p>
+  <strong>Ti le chap:</strong>
+  <%= odds_line(@game)  %>
+</p>
+<p>
+  <strong>Thoi gian dat cuoc:</strong>
+  <%= @game.start_bet_time %> - <%= @game.end_bet_time %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_game_path(@game) %> |
+  <%= link_to "Destroy", @game, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", games_path %>
+</p>

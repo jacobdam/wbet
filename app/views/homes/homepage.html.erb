@@ -1,0 +1,11 @@
+<h2>Ke`o</h2>
+<ul>
+  <% @upcoming_games.each do |game| %>
+    <li>
+      <%= link_to game.match.name, game %>
+      <% if game.match.odds != 0 %>
+        (<%= odds_line(game) %>)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
